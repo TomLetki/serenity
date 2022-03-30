@@ -18,5 +18,6 @@ public class CreateAccountTest {
     @Test
     public void createAccount(){
         homePage.open();
+        homePage.openMyAccountPage();
     }
 }

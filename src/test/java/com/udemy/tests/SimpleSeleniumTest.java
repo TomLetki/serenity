@@ -4,6 +4,8 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 
@@ -17,5 +19,8 @@ public class SimpleSeleniumTest {
     public void openSeleniumDemoPage()
     {
     driver.get("http://seleniumdemo.com/");
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("alert('Hello, to jest alert!')");
+        driver.findElement(By.xpath("//li[@id='menu-item-22']//a")).click();
     }
 }

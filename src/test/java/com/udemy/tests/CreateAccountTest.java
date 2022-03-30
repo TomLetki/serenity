@@ -17,6 +17,6 @@ public class CreateAccountTest {
 
     @Test
     public void createAccount(){
-        homePage.openHomePage();
+        homePage.open();
     }
 }

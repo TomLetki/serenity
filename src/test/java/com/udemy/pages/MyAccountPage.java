@@ -19,9 +19,9 @@ public class MyAccountPage extends PageObject {
 public void registerUser(String email, String password){
     regEmailInput.type(email);
     withAction().moveToElement(regPasswordInput).build().perform(); //przesuwa do elementu
-    regPasswordInput.type(password);
-    withAction().moveToElement(regButton).build().perform();
-    regButton.click();
+    regPasswordInput.typeAndEnter(password);
+    //withAction().moveToElement(regButton).build().perform();
+    //regButton.click();
 }
 
 }

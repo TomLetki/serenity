@@ -16,6 +16,9 @@ public class SerenityDemoTest {
 
     @Test
     public void testSerenityDemoPage() {
+
         demoPage.open();
+       // demoPage.checkStateOfElements();
+        demoPage.selectOption();
     }
 }

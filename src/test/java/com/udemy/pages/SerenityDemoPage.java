@@ -21,6 +21,9 @@ public class SerenityDemoPage extends PageObject {
     @FindBy(id = "fname")
     private WebElementFacade firesNameInput;
 
+    @FindBy(id = "city")
+    private WebElementFacade cityInput;
+
     @FindBy(name = "carSelect")
     private WebElementFacade carSelect;
 
@@ -69,5 +72,17 @@ public void waits(){
             .pollingEvery(Duration.ofMillis(500))
             .ignoring(NoSuchMethodException.class)
             .until(driver -> driver.findElements(By.tagName("p")).size()==0);*/
+    }
+
+    public void handleAlerts(){
+    createAlertButton.waitUntilVisible().click();
+    getAlert().accept();
+    }
+
+    public void executeJavascript(){
+    String test = "Prezykładowy tekst";
+    getJavascriptExecutorFacade().executeScript("arguments[0].click();", showParagraphButton);
+    getJavascriptExecutorFacade().executeScript("arguments[0].setAttribute('value', '"+test+"')", cityInput);
+        System.out.println(evaluateJavascript("return document.title"));
     }
 }

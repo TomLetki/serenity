@@ -62,7 +62,7 @@ public void waits(){
     firesNameInput.waitUntilClickable().click();
     carSelect.waitUntilEnabled().selectByValue("volvo");
     waitFor(carSelect).waitUntilVisible().selectByValue("mercedes");
-    secretParagraph.waitUntilNotVisible();
+    secretParagraph.click();
 
   /*  showParagraphButton.waitUntilVisible().click();
     waitForCondition().withTimeout(Duration.ofSeconds(10))

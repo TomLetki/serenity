@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @DefaultUrl("file:///D:/Szkolenie_tester/Serenity/Serenity.html")
@@ -38,6 +39,9 @@ public class SerenityDemoPage extends PageObject {
 
     @FindBy(id="createAlert")
     private WebElementFacade createAlertButton;
+
+    @FindBy(tagName = "p")
+    private List<WebElementFacade> paragraphs;
 
 public void checkStateOfElements(){
     log.info("Is visible "+createAlertButton.isVisible());
@@ -84,5 +88,9 @@ public void waits(){
     getJavascriptExecutorFacade().executeScript("arguments[0].click();", showParagraphButton);
     getJavascriptExecutorFacade().executeScript("arguments[0].setAttribute('value', '"+test+"')", cityInput);
         System.out.println(evaluateJavascript("return document.title"));
+
+    }
+    public void printNumberOfParagraphs(){
+    log.info("SIze of <p> list is "+paragraphs.size());
     }
 }

@@ -23,6 +23,7 @@ public class SerenityDemoTest {
        // demoPage.waits();
         //demoPage.handleAlerts();
         demoPage.executeJavascript();
+        demoPage.printNumberOfParagraphs();
 
 
     }

@@ -64,10 +64,10 @@ public void waits(){
     waitFor(carSelect).waitUntilVisible().selectByValue("mercedes");
     secretParagraph.waitUntilNotVisible();
 
-    showParagraphButton.waitUntilVisible().click();
+  /*  showParagraphButton.waitUntilVisible().click();
     waitForCondition().withTimeout(Duration.ofSeconds(10))
             .pollingEvery(Duration.ofMillis(500))
             .ignoring(NoSuchMethodException.class)
-            .until(driver -> driver.findElements(By.tagName("p")).size()==0);
+            .until(driver -> driver.findElements(By.tagName("p")).size()==0);*/
     }
 }

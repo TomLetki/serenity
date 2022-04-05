@@ -5,9 +5,13 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 @DefaultUrl("file:///D:/Szkolenie_tester/Serenity/Serenity.html")
 public class SerenityDemoPage extends PageObject {
@@ -53,4 +57,17 @@ public void selectOption(){
     carSelect.selectByVisibleText("Volvo");
 
 }
+
+public void waits(){
+    firesNameInput.waitUntilClickable().click();
+    carSelect.waitUntilEnabled().selectByValue("volvo");
+    waitFor(carSelect).waitUntilVisible().selectByValue("mercedes");
+    secretParagraph.waitUntilNotVisible();
+
+    showParagraphButton.waitUntilVisible().click();
+    waitForCondition().withTimeout(Duration.ofSeconds(10))
+            .pollingEvery(Duration.ofMillis(500))
+            .ignoring(NoSuchMethodException.class)
+            .until(driver -> driver.findElements(By.tagName("p")).size()==0);
+    }
 }

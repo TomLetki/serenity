@@ -19,6 +19,7 @@ public class SerenityDemoTest {
 
         demoPage.open();
        // demoPage.checkStateOfElements();
-        demoPage.selectOption();
+        //demoPage.selectOption();
+        demoPage.waits();
     }
 }

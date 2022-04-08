@@ -28,7 +28,7 @@ public class SerenityDemoTest {
        // demoPage.printNumberOfParagraphs();
         //demoPage.findMethodTest();
         demoPage.uploadFile(file.getAbsolutePath());
-
+        demoPage.getResults();
 
     }
 }

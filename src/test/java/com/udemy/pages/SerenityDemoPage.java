@@ -5,8 +5,10 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.pages.components.HtmlTable;
 import org.asynchttpclient.request.body.generator.ByteArrayBodyGenerator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +16,11 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static net.thucydides.core.matchers.BeanMatchers.the;
+import static org.hamcrest.Matchers.is;
 
 @DefaultUrl("file:///D:/Szkolenie_tester/Serenity/Serenity.html")
 public class SerenityDemoPage extends PageObject {
@@ -47,6 +53,9 @@ public class SerenityDemoPage extends PageObject {
 
     @FindBy(id = "myFile")
     private WebElementFacade fileUploadInput;
+
+    @FindBy(id="table")
+    private WebElementFacade table;
 
 
 public void checkStateOfElements(){
@@ -115,6 +124,17 @@ public void waits(){
 
 public void uploadFile(String pathToFile){
     upload(pathToFile).to(fileUploadInput);
+
+}
+public void getResults(){
+    List<Map<Object,String>> rows = HtmlTable.rowsFrom(table);
+    System.out.println("Rows size is "+rows.size());
+    Map<Object, String> firstRow = rows.get(0);
+    System.out.println("Getting element by index "+firstRow.get(1));
+    System.out.println("Getting element by coulmn hader "+firstRow.get("Firstname"));
+
+    List<WebElement> filteredRows = HtmlTable.filterRows(table, the("Firstname", is("Eve")));
+    System.out.println("Filtered rows size is "+filteredRows.size());
 }
 
 }

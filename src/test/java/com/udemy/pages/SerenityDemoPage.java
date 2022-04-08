@@ -5,12 +5,14 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.asynchttpclient.request.body.generator.ByteArrayBodyGenerator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -93,4 +95,20 @@ public void waits(){
     public void printNumberOfParagraphs(){
     log.info("SIze of <p> list is "+paragraphs.size());
     }
+
+    public void findMethodTest(){
+        log.info("Size of <p> list is "+findAll(By.tagName("p")).size());
+        log.info("Size of <p> list is "+findAll("p").size());
+
+        log.info(findNested(By.tagName("body"), By.tagName("h1")).getText());
+        log.info(find(Arrays.asList(By.tagName("body"),By.tagName("h1"))).getText());
+        log.info(find(By.tagName("button")).getText());
+        log.info(find(By.id("newPage")).getText());
+        log.info(findNested(By.tagName("button"),By.id("newPage")).getText());
+
+
+       }
+
+
+
 }

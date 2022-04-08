@@ -22,8 +22,9 @@ public class SerenityDemoTest {
         //demoPage.selectOption();
        // demoPage.waits();
         //demoPage.handleAlerts();
-        demoPage.executeJavascript();
-        demoPage.printNumberOfParagraphs();
+        //demoPage.executeJavascript();
+       // demoPage.printNumberOfParagraphs();
+        demoPage.findMethodTest();
 
 
     }

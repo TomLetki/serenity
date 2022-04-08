@@ -45,6 +45,10 @@ public class SerenityDemoPage extends PageObject {
     @FindBy(tagName = "p")
     private List<WebElementFacade> paragraphs;
 
+    @FindBy(id = "myFile")
+    private WebElementFacade fileUploadInput;
+
+
 public void checkStateOfElements(){
     log.info("Is visible "+createAlertButton.isVisible());
     log.info("Is currently visible "+secretParagraph.isCurrentlyVisible());
@@ -109,6 +113,8 @@ public void waits(){
 
        }
 
-
+public void uploadFile(String pathToFile){
+    upload(pathToFile).to(fileUploadInput);
+}
 
 }

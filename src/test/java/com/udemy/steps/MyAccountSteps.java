@@ -3,6 +3,7 @@ package com.udemy.steps;
 import com.udemy.pages.MyAccountPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 
 public class MyAccountSteps {
 
@@ -14,8 +15,9 @@ public class MyAccountSteps {
     }
 
     @Step("Checking if logout link is displayed")
-    public boolean checkLogoutLink() {
-        return myAccountPage.isLogoutLinkDisplayed();
+    public void checkLogoutLink(boolean isDisplayed) {
+        Assert.assertEquals(isDisplayed, myAccountPage.isLogoutLinkDisplayed());
+
     }
 
     @Step("Checking if error message equals {0}")

@@ -6,6 +6,7 @@ import com.udemy.steps.HomePageSteps;
 import com.udemy.steps.MyAccountSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,20 +26,23 @@ public class CreateAccountTest {
 
 
     @Test
+    @Screenshots(onlyOnFailures = true)
     public void createAccount() {
         homePageSteps.openHomePage();
         homePageSteps.openAccountPage();
         myAccountPageSteps.registerUser("tester39@jetbrains.com", "Str0n6P4ss@szkas01.com");
-        Assert.assertEquals(true, myAccountPageSteps.checkLogoutLink());
+        myAccountPageSteps.checkLogoutLink(true);
+
     }
 
     @Test
+    @Screenshots(disabled = true)
     public void createSameAccount() {
         homePageSteps.openHomePage();
         homePageSteps.openAccountPage();
         myAccountPageSteps.registerUser("tester36@jetbrains.com", "Str0n6P4ss@szkas01.com");
         Assert.assertTrue(myAccountPageSteps.checkErorMessage("An account is already registered with your email address. Please log in."));
-        Assert.assertEquals(false, myAccountPageSteps.checkLogoutLink());
+        myAccountPageSteps.checkLogoutLink(false);
     }
 }
 

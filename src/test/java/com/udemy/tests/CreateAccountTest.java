@@ -28,7 +28,7 @@ public class CreateAccountTest {
     public void createAccount() {
         homePageSteps.openHomePage();
         homePageSteps.openAccountPage();
-        myAccountPageSteps.registerUser("tester36@jetbrains.com", "Str0n6P4ss@szkas01.com");
+        myAccountPageSteps.registerUser("tester39@jetbrains.com", "Str0n6P4ss@szkas01.com");
         Assert.assertEquals(true, myAccountPageSteps.checkLogoutLink());
     }
 
@@ -36,7 +36,7 @@ public class CreateAccountTest {
     public void createSameAccount() {
         homePageSteps.openHomePage();
         homePageSteps.openAccountPage();
-        myAccountPageSteps.registerUser("tester34@jetbrains.com", "Str0n6P4ss@szkas01.com");
+        myAccountPageSteps.registerUser("tester36@jetbrains.com", "Str0n6P4ss@szkas01.com");
         Assert.assertTrue(myAccountPageSteps.checkErorMessage("An account is already registered with your email address. Please log in."));
         Assert.assertEquals(false, myAccountPageSteps.checkLogoutLink());
     }

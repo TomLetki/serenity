@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>3.2.1</serenity.version>
+        <serenity.version>3.2.3</serenity.version>
     </properties>
 
     <repositories>
@@ -61,6 +61,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd.maven.plugins/serenity-maven-plugin -->
+        <dependency>
+            <groupId>net.serenity-bdd.maven.plugins</groupId>
+            <artifactId>serenity-maven-plugin</artifactId>
+            <version>3.2.3</version>
+        </dependency>
         </dependencies>
     <build>
         <plugins>
@@ -70,6 +76,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <skip>false</skip>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
              <plugin>

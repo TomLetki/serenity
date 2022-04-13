@@ -26,7 +26,7 @@ public class CreateAccountTest {
 
 
     @Test
-    @Screenshots(onlyOnFailures = true)
+    //@Screenshots(onlyOnFailures = true)
     public void createAccount() {
         homePageSteps.openHomePage();
         homePageSteps.openAccountPage();
@@ -36,7 +36,7 @@ public class CreateAccountTest {
     }
 
     @Test
-    @Screenshots(disabled = true)
+    //@Screenshots(disabled = true)
     public void createSameAccount() {
         homePageSteps.openHomePage();
         homePageSteps.openAccountPage();

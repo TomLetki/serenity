@@ -11,6 +11,7 @@ public class HomePageSteps extends ScenarioSteps {
     @Step(value = "Opening Home Page!")
     public void openHomePage(){
         homePage.open();
+        getPages().currentPageAt(ShopHomePage.class);
 
     }
     @Step("Opening My Account Page!") // może być string

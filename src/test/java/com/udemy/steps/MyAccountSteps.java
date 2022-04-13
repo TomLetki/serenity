@@ -1,6 +1,7 @@
 package com.udemy.steps;
 
 import com.udemy.pages.MyAccountPage;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -22,6 +23,8 @@ public class MyAccountSteps {
 
     @Step("Checking if error message equals {0}")
     public boolean checkErorMessage(String message) {
+        Serenity.takeScreenshot();
+        Serenity.recordReportData().withTitle("Msg >> ").andContents(message);
         return myAccountPage.checkErrorMsg(message);
     }
 }

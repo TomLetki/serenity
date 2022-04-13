@@ -1,5 +1,6 @@
 package com.udemy.pages;
 
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -24,6 +25,8 @@ public class MyAccountPage extends PageObject {
 
 public void registerUser(String email, String password){
     regEmailInput.type(email);
+    Serenity.takeScreenshot();
+    Serenity.recordReportData().withTitle("Email and Password ").andContents(email+ " and "+ password);
     withAction().moveToElement(regPasswordInput).build().perform(); //przesuwa do elementu
     regPasswordInput.typeAndEnter(password);
     //withAction().moveToElement(regButton).build().perform();

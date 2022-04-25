@@ -1,4 +1,4 @@
-package com.udemy.steps;
+package com.udemy.steps.serenity;
 
 import com.udemy.pages.MyAccountPage;
 import com.udemy.pages.ShopHomePage;

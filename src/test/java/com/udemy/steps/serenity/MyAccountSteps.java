@@ -1,4 +1,4 @@
-package com.udemy.steps;
+package com.udemy.steps.serenity;
 
 import com.udemy.pages.MyAccountPage;
 import net.serenitybdd.core.Serenity;
@@ -17,14 +17,14 @@ public class MyAccountSteps {
 
     @Step("Checking if logout link is displayed")
     public void checkLogoutLink(boolean isDisplayed) {
-        Assert.assertEquals(isDisplayed, myAccountPage.isLogoutLinkDisplayed());
+       myAccountPage.isLogoutLinkDisplayed(isDisplayed);
 
     }
 
     @Step("Checking if error message equals {0}")
-    public boolean checkErorMessage(String message) {
+    public void checkErorMessage(String message) {
         Serenity.takeScreenshot();
         Serenity.recordReportData().withTitle("Msg >> ").andContents(message);
-        return myAccountPage.checkErrorMsg(message);
+        myAccountPage.checkErrorMsg(message);
     }
 }

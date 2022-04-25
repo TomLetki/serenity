@@ -32,12 +32,17 @@ public void registerUser(String email, String password){
     //withAction().moveToElement(regButton).build().perform();
     //regButton.click();
 }
-public boolean checkErrorMsg(String message){
-    return errorMessage.containsText(message);
+public void checkErrorMsg(String message){
+    errorMessage.shouldContainText(message);
 
 }
-public boolean isLogoutLinkDisplayed(){
-    return logoutLink.isVisible();
+public void isLogoutLinkDisplayed(boolean isDisplayed){
+    if(isDisplayed){
+         logoutLink.shouldBeVisible();
+    }else{
+        logoutLink.shouldNotBeVisible();
+    }
+
 }
 
 }

@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(SerenityRunner.class)
+//@RunWith(SerenityRunner.class)
 public class CreateAccountTest {
 
     @Managed(uniqueSession = true) //nie zamyka przeglądarki między testami
@@ -21,7 +21,7 @@ public class CreateAccountTest {
     private MyAccountSteps myAccountPageSteps;
 
 
-    @Test
+   // @Test
     //@Screenshots(onlyOnFailures = true)
     public void createAccount() {
         homePageSteps.openHomePage();
@@ -31,7 +31,7 @@ public class CreateAccountTest {
 
     }
 
-    @Test
+ //   @Test
     //@Screenshots(disabled = true)
     public void createSameAccount() {
         homePageSteps.openHomePage();

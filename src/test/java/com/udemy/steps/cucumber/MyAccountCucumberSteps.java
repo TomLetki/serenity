@@ -29,7 +29,7 @@ public class MyAccountCucumberSteps {
 
     @And("register with unique email and valid password")
     public void registerWithUniqueEmailAndValidPassword() {
-        myAccountPage.registerUser(LocalTime.now().getNano()+"@gmail.com", "1q2w3e4r5tQWE");
+        myAccountPage.registerUser(LocalTime.now().getNano()+"@gmail.com", "1@DDq2w3e4r5tQWE");
     }
 
     @Then("should see logout link")

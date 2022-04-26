@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 import java.time.LocalTime;
+import java.util.Map;
 
 public class MyAccountCucumberSteps {
     @Steps
@@ -44,4 +45,8 @@ public class MyAccountCucumberSteps {
     }
 
 
+    @And("registers with data")
+    public void registersWithData(Map<String,String> data) {
+        myAccountPage.registerUser(data.get("email"), data.get("password"));
+    }
 }

@@ -18,7 +18,7 @@ public class MyAccountCucumberSteps {
     private MyAccountSteps myAccountPage;
 
     @Given("user on Selenium demo page")
-    public void openSeleniumDemoHomePage(){
+    public void openSeleniumDemoHomePage() {
         homePage.openHomePage();
     }
 
@@ -29,11 +29,19 @@ public class MyAccountCucumberSteps {
 
     @And("register with unique email and valid password")
     public void registerWithUniqueEmailAndValidPassword() {
-        myAccountPage.registerUser(LocalTime.now().getNano()+"@gmail.com", "1@DDq2w3e4r5tQWE");
+        myAccountPage.registerUser(LocalTime.now().getNano() + "@gmail.com", "1@DDq2w3e4r5tQWE");
     }
 
     @Then("should see logout link")
     public void shouldSeeLogoutLink() {
         myAccountPage.checkLogoutLink(true);
     }
+
+    @And("^registers with unique (.*) and valid (.*)$")
+   // @And("registers with unique {string} and valid {string}")
+    public void registerWithUniqueAndValid(String email, String password) {
+        myAccountPage.registerUser(email, password);
+    }
+
+
 }

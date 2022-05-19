@@ -23,7 +23,7 @@ public class MyAccountCucumberSteps {
         homePage.openHomePage();
     }
 
-    @When("user open account page")
+    @When("user opens account page")
     public void userOpenAccountPage() {
         homePage.openAccountPage();
     }
